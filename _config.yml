@@ -13,10 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-#title: "Reflections of Imperfection"
 title: "Reflections / Imperfections"
-#title: "Imperfect Reflections"
-#title: "Seeing Software"
 email: mechanicalnull@gmail.com
 description: >-
   A collection of interesting tidbits from the misadventures of software;
