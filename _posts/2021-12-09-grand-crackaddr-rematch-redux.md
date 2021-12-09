@@ -313,7 +313,7 @@ experience of popping out a bug right away? No, actually it looked like we got
 some coverage but way less than expected. Maybe this won't be as easy as we
 thought to be automatically discovered with a fuzzer. So we bust out
 [bncov](bncov) to do some basic
-[coverage analysis](./2021-11-03-case-for-automated-coverage.md) and see how far
+[coverage analysis]({% post_url 2021-11-03-case-for-automated-coverage %}) and see how far
 we're getting in the target.
 
 
