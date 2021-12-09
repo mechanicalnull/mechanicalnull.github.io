@@ -531,9 +531,10 @@ did it go?
 Fuzzing with the cmplog switch led to a crash in under 3 minutes!? That seems
 pretty awesome, but when I looked at the crash, it was a completely different
 crash than I had seen previously. It's actually not the expected stack buffer
-overflow in `cgc_sendmail_post`, but instead it's in a NULL pointer dereference
-that occurs when attempting to print an email message in `cgc_read_message`.
-While this new bug is not exploitable, how the fuzzer gets to it is pretty rad.
+overflow in crash that happens in `cgc_sendmail_post`, but instead it's a NULL
+pointer dereference that occurs when attempting to print an email message in
+`cgc_read_message`.  While this new bug is not exploitable, how the fuzzer gets
+to it is pretty rad.
 
 During initialization, the challenge binary uses a PRNG with a fixed seed and
 generates some mail queues with random names and contents. This makes sure
