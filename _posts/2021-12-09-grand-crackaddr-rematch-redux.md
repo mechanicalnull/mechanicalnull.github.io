@@ -521,8 +521,8 @@ implementation as described in
 [the paper](https://wcventure.github.io/FuzzingPaper/Paper/NDSS19_REDQUEEN.pdf)
 does even more than AFL++'s implementation, but some of the extra techniques
 definitely require extra work and might be useless for some targets. That being
-said, I think cmplog is a clever technique so I wanted to try it out, so how did
-it go?
+said, I think cmplog is a clever technique and I wanted to try it out, so how
+did it go?
 
 | ![Fuzzing with cmplog](../assets/images/p2/cmplog_fuzz_result.png) |
 | :-: |
