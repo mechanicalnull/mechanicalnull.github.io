@@ -27,7 +27,7 @@ don't ever want to leave your manual workflow, by the end I hope we can all at
 least agree that we don't want to manually turn a crank to get coverage
 information.
 
-| ![bncov screenshot](../assets/images/basic_coverage_analysis0.png) |
+| ![bncov screenshot](../assets/images/p1/basic_coverage_analysis0.png) |
 | :-: |
 | *what could be more important than pretty colors?* |
 
@@ -106,7 +106,7 @@ covering_traces = covdb.get_traces_from_block(sprintf_func.start)
 print(f'{len(covering_traces)} of {len(covdb.trace_dict)} traces call sprintf')
 ```
 
-| ![finding sprintf calls](../assets/images/basic_coverage_analysis1.png) |
+| ![finding sprintf calls](../assets/images/p1/basic_coverage_analysis1.png) |
 | :-: |
 | *Finding covered cross-refs via scripting* |
 
@@ -148,7 +148,7 @@ for block_start in almost_calls:
     print(f'Almost-covered: {hex(block_start)} ({num_cover} traces)')
 ```
 
-| ![finding almost-calling-sprintfs](../assets/images/basic_coverage_analysis2.png) |
+| ![finding almost-calling-sprintfs](../assets/images/p1/basic_coverage_analysis2.png) |
 | :-: |
 | *But why didn't we get to this call?* |
 
@@ -194,7 +194,7 @@ for block_start in almost_calls:
         print(f'  Line {line_num}: {target_line.strip()}')
 ```
 
-| ![source lines for almost-call-sprintfs](../assets/images/basic_coverage_analysis3.png) |
+| ![source lines for almost-call-sprintfs](../assets/images/p1/basic_coverage_analysis3.png) |
 | :-: |
 | *Automagic source correlation for covered locations of interest* |
 

@@ -1,3 +1,13 @@
+---
+title: "Grand Crackaddr Rematch Redux: AFL++ and a Legend"
+tags:
+  - coverage analysis
+  - fuzzing
+  - cyber grand challenge
+  - tools
+  - bug
+---
+
 One of the things I find most interesting about software bugs is the stories
 behind them. Think about it: as unconscious creations, bugs don't have a
 story until they are discovered, and only then do they take on meaning. 
@@ -302,8 +312,9 @@ So building with AFL++'s `afl-lto` and getting to fuzzing, do we have the same
 experience of popping out a bug right away? No, actually it looked like we got
 some coverage but way less than expected. Maybe this won't be as easy as we
 thought to be automatically discovered with a fuzzer. So we bust out
-[bncov](https://github.com/ForAllSecure/bncov) to see how far we're getting in
-the target.
+[bncov](bncov) to do some basic
+[coverage analysis](./2021-11-03-case-for-automated-coverage.md) and see how far
+we're getting in the target.
 
 
 | ![bncov analysis on initial fuzzing of cgc-crackaddr](../assets/images/p2/initial_coverage_plateau.png) |
@@ -474,7 +485,7 @@ for s in sorted(string_args):
 
 Ok, so that was a little manual, but I'm ok since I'm paying for my own
 electricity and don't want to waste time with useless dictionary entries.
-Starting fuzzing back up with this dictionary.
+Starting fuzzing back up with this dictionary, and we'll see how it goes.
 
 | ![Fuzzing coverage after adding our dictionary](../assets/images/p2/dict_fuzzing_coverage.png) |
 | :-: |
@@ -510,7 +521,8 @@ implementation as described in
 [the paper](https://wcventure.github.io/FuzzingPaper/Paper/NDSS19_REDQUEEN.pdf)
 does even more than AFL++'s implementation, but some of the extra techniques
 definitely require extra work and might be useless for some targets. That being
-said, I think cmplog is a clever technique so I wanted to try it out.
+said, I think cmplog is a clever technique so I wanted to try it out, so how did
+it go?
 
 | ![Fuzzing with cmplog](../assets/images/p2/cmplog_fuzz_result.png) |
 | :-: |
