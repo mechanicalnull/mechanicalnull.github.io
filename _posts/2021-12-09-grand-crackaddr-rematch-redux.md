@@ -459,7 +459,7 @@ for mf in bv.mlil_functions():
                 continue
             # CALL args are third in "operands"
             for arg in ml_inst.operands[2]:
-                if isinstance(arg, MediumLevelILConst_ptr):
+                if isinstance(arg, MediumLevelILConstPtr):
                     maybe_string = bv.get_string_at(arg.value)
                     if maybe_string:
                         string_args.add(maybe_string.value)
