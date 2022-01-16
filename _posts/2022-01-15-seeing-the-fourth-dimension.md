@@ -143,9 +143,17 @@ user to peruse the graph at their leisure.
 So now that we can see the growth of coverage over time for a single function,
 but is it pretty, intuitive, or useful?
 
-I personally think it's fun to be able to generate this thing for any target,
-but I think it's real usefulness is as a starting point for discussion of what
-else we might do like this.
+It was useful in reinforcing exactly how coverage increased, though not in a
+groundbreaking way, more of just a reminder of things that are apparent if you
+stop and think about them. Even if a block is "new" or "rare", it doesn't come
+in on its own; it's more likely to have shared predecessors/successors with
+previous seeds than cut a new path through uncovered territory. When functions
+have loops or get called multiple times, the "path" to a new block may not be
+clear since block coverage doesn't show order or indicate multiple traversals.
+
+In retrospect, I'm not sure that this in particular is something that fills a
+need other than perhaps teaching, but it can at least be a starting point for
+discussion of what else we might do like this.
 
 We could visualize a comparison of multiple fuzzers or fuzz runs by using
 different colors, which might be useful for understanding what parts of
