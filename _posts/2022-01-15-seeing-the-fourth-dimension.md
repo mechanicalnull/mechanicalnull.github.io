@@ -9,7 +9,7 @@ tags:
 Software security is the esoteric art of staring at a wall of text and
 extracting more information than the last person did.  Ok, that's (mostly) an
 exaggeration, but sometimes it doesn't seem that far off the mark. I'm a
-~~nerd for visualizations~~advocate for expressing
+~~nerd for visualizations~~ advocate for expressing
 data in visual format when it makes sense, so I wanted to play around with the
 idea of trying to show how a fuzzer gradually discovers functionality in a 
 target.
@@ -20,9 +20,9 @@ ended up being a new
 useful if you're curious about exactly this one thing (block coverage over
 time), but otherwise might just serve best as a lava lamp for hackers?
 
-| ![Phantasm showing coverage over time of cgc's crackaddr rematch main](../assets/images/p3/phantasm_demo.gif) |
+| [![Phantasm showing coverage over time of cgc's crackaddr rematch main](../assets/images/p3/phantasm_demo.gif)](../assets/html/phantasm-crackaddr.html) |
 | :-: |
-| *Newly-discovered blocks start as red and fade to blue as frames progress. GIFs don't do justice to how sharp the rendering is, you'll have to pull one of the examples from the repo to see.* |
+| *Newly-discovered blocks start as red and fade to blue as frames progress. Click the image to go to the visualization, GIFs don't do it justice.* |
 
 ## Quick aside on connecting brains and eyeballs
 
@@ -114,7 +114,7 @@ focus on, and that wasn't very helpful.
 
 I had been trying to avoid Javascript because I wanted the visualization to be
 as self-contained as possible (also, I'm pretty inexperienced with Javascript).
-But it finally came to the point where I realized that Javscript was definitely
+But it finally came to the point where I realized that Javascript was definitely
 the way to go; I just had to bite the bullet and blunder my way through it.
 
 Even though I was resistant to it at first, using Javascript allowed me to make
@@ -127,14 +127,15 @@ Once I got the basic idea of how to move from one frame to the next, it wasn't
 hard to add some buttons to allow single-stepping forward and back as well as
 turning off looping. Adding a button to highlight all of the blocks of the most
 recent seed was actually the trickiest bit, but even that wasn't too bad. Nope,
-I take that back, adding pan and zoom was strangely horrible and never worked
-exactly the way I wanted it to... I must've blocked that out.
+I take that back, trying to adding pan and zoom was strangely annoying and
+horrible and never worked exactly the way I wanted it to... I must've blocked
+that out.
 
-| ![Demonstrating Phantasm Interactivity](../assets/images/p3/phantasm_step_zoom.gif) |
+| [![Demonstrating Phantasm Interactivity](../assets/images/p3/phantasm_step_zoom.gif)](../assets/html/phantasm-libjpegturbo.html) |
 | :-: |
-| *Hard to tell without the cursor, but I'm clicking around on the buttons and zooming with the mousewheel* |
+| *Hard to tell without the cursor, but I'm clicking around on the buttons and zooming with the mousewheel. Click the image to browse to the original visualization and try it yourself.* |
 
-So in the end I was able to get something that at least meets the original
+However! In the end I was able to get something that at least meets the original
 intent, a visualization that shows the coverage growth over time and allows the
 user to peruse the graph at their leisure.
 
@@ -147,7 +148,7 @@ It was useful in reinforcing exactly how coverage increased, though not in a
 groundbreaking way, more of just a reminder of things that are apparent if you
 stop and think about them. Even if a block is "new" or "rare", it doesn't come
 in on its own; it's more likely to have shared predecessors/successors with
-previous seeds than cut a new path through uncovered territory. When functions
+previous seeds than cut a new path through completely uncovered territory. When functions
 have loops or get called multiple times, the "path" to a new block may not be
 clear since block coverage doesn't show order or indicate multiple traversals.
 
@@ -165,9 +166,10 @@ and just render it... but we'll quickly run into the problem of managing huge
 graphs and how the unprepared mind seems to recoil from such monstrosities.
 Might be interesting to tackle that another time.
 
-If nothing else, it was useful to me because I learned some cool stuff and
-maybe it'll even interest some more people in what fuzzers can do and what
+If nothing else, it was useful to me because I learned some interesting things.
+Maybe it'll even interest some more people in what fuzzers can do and what
 cool visualizations we can make. I'll leave the decision of whether its pretty
-or intuitive to the reader,
-[the repo](https://github.com/mechanicalnull/phantasm) includes html files that
-will render on a plain browser.
+or intuitive to the reader, you can view prebuilt examples either by clicking
+the two GIFs in this blog or by pulling them out of
+[the repo](https://github.com/mechanicalnull/phantasm)
+and viewing them.
