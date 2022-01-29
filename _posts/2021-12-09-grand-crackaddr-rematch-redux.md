@@ -6,6 +6,8 @@ tags:
   - cyber grand challenge
   - tools
   - bug
+header:
+  image: /assets/images/p2/dict_fuzzing_coverage.png
 ---
 
 One of the things I find most interesting about software bugs is the stories
