@@ -48,7 +48,7 @@ take advantage of the brain's visual pattern recognition.
 I had no reference on the implementation other than having a vague idea that
 they weren't supposed to be [collision-resistant](https://en.wikipedia.org/wiki/Collision_resistance).
 
-What I didn't know was that it was a completely deterministic process: each byte
+What I didn't know was that it was a very simple process: each byte
 describes moves in a field, and each symbol in the field represents the number
 of times that square has been visited, so there's no randomness injected (hence
 the "sober" part since it's not a "random walk" or "drunkard's walk" as some
