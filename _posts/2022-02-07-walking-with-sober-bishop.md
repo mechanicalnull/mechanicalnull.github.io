@@ -19,7 +19,7 @@ solutions, because I think it helps the community when there are more resources.
 
 ## Walking Sober
 
-So this problem was called sober bishop, and we are given several four things:
+So this problem was called sober bishop, and we are given only four things:
 
 1. The regex the flag must fit
 1. A [code reference](https://github.com/openssh/openssh-portable/blob/d9dbb5d9a0326e252d3c7bc13beb9c2434f59409/sshkey.c#L1180) to fingerprint art generation
