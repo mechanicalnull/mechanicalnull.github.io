@@ -177,8 +177,9 @@ Using round-robin as our scheduling algorithm is a great comparison because it
 is still general a general (but more equitable) approach and it performs _much_
 better.  Round robin scheduling of inputs for mutation pops out the answer in as
 little as 5 seconds with a single core, as opposed to minutes if we use random
-scheduling.  This little experiment with scheduling is exactly the kind of thing
-MIMO is built for!
+scheduling.  This is still a naive approach as it doesn't try to track
+uniqueness, depth, or ancestry of inputs, but this kind of experimentation with
+scheduling is exactly what MIMO is built for!
 
 ## Time to Start Monkeying Around
 
