@@ -16,8 +16,8 @@ still seems to be considered by some to be a minor form of sorcery.
 
 Well I say today is the day we crack our knuckles and get down to some minor
 sorcery as I share my experiment in writing a fuzzer I call MILLION MONKEYS (or
-"mimo" for short), which I hope will enable interesting future experiments... or
-at least it'll be an exercising in learning more by coding things oneself.
+"MIMO" for short), which I hope will enable interesting future experiments... or
+at least it'll be an exercise in learning more by coding things oneself.
 I'll share my thought process below, maybe it'll be helpful for those who
 haven't written a fuzzer before; everyone else can go
 [check out the code](https://github.com/mechanicalnull/mimo).
@@ -46,7 +46,7 @@ which is a pretty neat idea.
 
 | ![Art, Science, Engineering of Fuzzing Paper Algorithm](../assets/images/p4/fuzz_algo.png) |
 | :-: |
-| *How one paper describes the algorithm common among fuzzers* |
+| *How [one paper](https://arxiv.org/pdf/1812.00140.pdf) describes the algorithm common among fuzzers* |
 
 ## How is Fuzzer Formed?
 
@@ -111,17 +111,18 @@ flipping a single bit at a time. Since this fuzzer is not fast, but it does make
 customization easy, I also made a mutator that would pick a random byte and
 change it to a (different) random letter.
 
-This may a random detail, but a fuzzer can waste a lot of time trying inputs
-that the user might know to be useless, so sometimes the approach of more
-actively guiding the fuzzer can mean the difference between fuzzing forever with
-no progress and finding a crash in a matter of minutes.
+This may seem like a random detail, but a fuzzer can waste a lot of time trying
+inputs that the user might know to be useless, and in this case we know that the
+inputs will contain only letters, so let's go ahead. Sometimes the approach of
+more actively guiding the fuzzer can mean the difference between fuzzing forever
+with no progress and finding a crash in a matter of minutes.
 
 ## Are We Fuzz Yet?
 
-So I start testing my newly-minted fuzzer to see if it was generating the kinds
-of inputs expected and how fast it was going. The discussion of speed is mostly
-just so we can see what bottlenecks emerge as we start hooking things together,
-because we want to see where the real bottlenecks are so we know where to focus
+Testing my newly-minted fuzzer started with just seeing if it was generating the
+kinds of inputs expected and how fast it was going. The discussion of speed is
+mostly just so we can see what bottlenecks emerge as we start hooking things
+together, because we want to see where the real bottlenecks are for
 future optimizations.
 
 So we start with just asking the mutator to generate inputs and not sending it
@@ -172,11 +173,12 @@ chances of getting closer to the right answer as we get closer to the answer.
 This is because as the number of inputs goes up, the chances of picking the
 input that is currently closest to the answer goes down.
 
-Taking a still-general but "fair" approach for scheduling inputs for mutation
-like round-robin performs _much_ better and pops out the answer in as little as
-5 seconds with a single core, as opposed to minutes if we use random scheduling.
-This little experiment with scheduling is exactly the kind of thing mimo is
-built for!
+Using round-robin as our scheduling algorithm is a great comparison because it
+is still general a general (but more equitable) approach and it performs _much_
+better.  Round robin scheduling of inputs for mutation pops out the answer in as
+little as 5 seconds with a single core, as opposed to minutes if we use random
+scheduling.  This little experiment with scheduling is exactly the kind of thing
+MIMO is built for!
 
 ## Time to Start Monkeying Around
 
